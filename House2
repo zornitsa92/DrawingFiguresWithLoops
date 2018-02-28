@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace House2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int size = int.Parse(Console.ReadLine());
+                        
+            int starsCount = 1; // написано по др начин : int starsCount = size % 2 == 0 ? 2 : 1;
+            if (size % 2 == 0)
+            {
+                starsCount = 2;
+            } 
+                         
+            for (int i = 0; i < (size + 1) / 2; i++)
+            {
+                string roofStars = new string('*', starsCount);
+                int dashCount = (size - starsCount) / 2;
+                string dashes = new string('-', dashCount);
+                string row = dashes + roofStars + dashes;
+                Console.WriteLine(row);
+                starsCount += 2;
+            }
+
+            string baseStars = new string('*', size - 2);
+            string baseRow = $"|{baseStars}|";
+            for (int i = 0; i < size / 2; i++)
+            {
+                Console.WriteLine(baseRow);
+            }
+
+        }
+    }
+}
