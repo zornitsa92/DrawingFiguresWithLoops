@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sunglasses2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int size = int.Parse(Console.ReadLine());
+                        
+            string borderStars = new string('*', size * 2);
+            string middleSpaces = new string(' ', size);
+            string bridges = new string('|', size);
+            string lens = new string('/', 2 * size - 2);
+            string border = borderStars + middleSpaces + borderStars;
+            string side = $"*{lens}*";
+
+            Console.WriteLine(border);
+
+            for (int row = 1; row <= size - 2; row++)
+            {
+                bool bridgeRow = row == (size - 1) / 2;
+                if (!bridgeRow)
+                {
+                    Console.WriteLine(side + middleSpaces + side);
+                }
+                else
+                {
+                    Console.WriteLine(side + bridges + side);
+                }
+            }
+
+            Console.WriteLine(border);
+        }
+    }
+}
