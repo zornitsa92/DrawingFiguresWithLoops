@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DrawFort
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            var colSize = n / 2;
+            var midSize = 2 * n - 2 * colSize - 4;
+
+            string colUp = new string('^', colSize);
+            string midup = new string('_', midSize);
+            Console.WriteLine("/{0}\\{1}/{0}\\", colUp, midup);            
+
+            for (int row = 1; row <= n - 3; row++)
+            {
+                string middle = new string(' ', 2 * n - 2);
+                Console.WriteLine($"|{middle}|");
+            }
+
+            string col = new string(' ', colSize + 1);
+            string mid = new string('_', midSize);
+            Console.WriteLine("|{0}{1}{0}|", col, mid);
+            
+            string colDown = new string('_', colSize);
+            string midDown = new string(' ', midSize);
+            Console.WriteLine("\\{0}/{1}\\{0}/", colDown, midDown);
+
+            
+
+        }
+    }
+}
