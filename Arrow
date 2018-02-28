@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Arrow
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            if (n % 2 != 0)
+            {
+                int outerDot = (n - 1) / 2; 
+                int innerDot = n - 2;
+
+                string outerDots = new string('.', outerDot);
+                string innerDots = new string('.', innerDot);
+                string diez = new string('#', n);
+
+                Console.WriteLine($"{outerDots}{diez}{outerDots}");
+
+                for (int i = 0; i < n - 2; i++)
+                {
+                    Console.WriteLine($"{outerDots}#{innerDots}#{outerDots}");
+                }
+
+                string middleDiez = new string('#', outerDot + 1);
+                string middleDots = new string('.', innerDot);
+                Console.WriteLine($"{middleDiez}{middleDots}{middleDiez}");
+
+                innerDot = 2 * n - 5;
+                outerDot = 1;
+                for (int row = 0; row < n - 2; row++)
+                {
+                    string outerDotsEnd = new string('.', outerDot);
+                    string innerDotsEnd = new string('.', innerDot);
+                    Console.WriteLine($"{outerDotsEnd}#{innerDotsEnd}#{outerDotsEnd}");
+
+                    outerDot++;
+                    innerDot -= 2;
+                }
+
+
+                string endDots = new string('.', n - 1);
+                Console.WriteLine($"{endDots}#{endDots}");                
+            }
+        }
+    }
+}
