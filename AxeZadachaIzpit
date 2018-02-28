@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AxeZadachaIzpit
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            int width = 5 * n;
+            int leftDashes = 3 * n;
+            int middleDashes = 0;
+            int rightDashes = width - leftDashes - middleDashes - 2;
+
+            for (int row = 0; row < n; row++)
+            {
+                string leftDashesUp = new string('-', leftDashes);
+                string middleDashesUp = new string('-', middleDashes);               
+                rightDashes = width - leftDashes - middleDashes - 2;
+                string rightDashesUp = new string('-', rightDashes);
+                
+                Console.WriteLine($"{leftDashesUp}*{middleDashesUp}*{rightDashesUp}");
+
+                rightDashes--;
+                middleDashes++;
+            }
+
+            for (int row = 0; row < n / 2; row++)
+            {
+                string stars = new string('*', leftDashes);
+                string middleDashesUp = new string('-', n - 1);
+                string rightDashesUp = new string('-', n - 1);
+
+                Console.WriteLine($"{stars}*{middleDashesUp}*{rightDashesUp}");
+            }
+
+            for (int row = 0; row < n / 2 - 1; row++)
+            {
+                string leftDashesUp = new string('-', leftDashes);
+                string middleDashesUp = new string('-', middleDashes - 1);
+                rightDashes = width - leftDashes - middleDashes - 2;
+                string rightDashesUp = new string('-', rightDashes + 1);
+
+                Console.WriteLine($"{leftDashesUp}*{middleDashesUp}*{rightDashesUp}");
+
+                rightDashes--;
+                leftDashes--;
+                middleDashes+=2;
+            }
+
+
+            middleDashes--;
+            rightDashes++;
+            string leftDashesDown = new string('-', leftDashes);
+            string starsDown = new string('*', middleDashes);           
+            string rightDashesDown = new string('-', rightDashes);
+
+            Console.WriteLine($"{leftDashesDown}*{starsDown}*{rightDashesDown}");
+           
+
+        }
+    }
+}
