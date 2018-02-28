@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ChristmasTree3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int size = int.Parse(Console.ReadLine());
+
+           const string middle = " | ";
+
+            for (int row = 0; row <= size; row++)
+            {
+                string spaces = new string(' ', size - row);
+                string stars = new string('*', row);
+
+
+                Console.WriteLine($"{spaces}{stars}{middle}{stars}");
+                //Console.WriteLine(spaces + stars + middle + stars);
+                //Console.WriteLine("{0}{1}{2}{1}", spaces, stars, middle);
+            }
+        }
+    }
+}
